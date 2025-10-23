@@ -80,6 +80,10 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
             animation: fadeIn 0.8s ease-out forwards;
             opacity: 0;
+            /* FIX: Ensure consistent text size and line height inside the box */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         /* Change metric box text to dark for light theme */
         .metric-box p { color: var(--text-dark) !important; }
@@ -224,10 +228,10 @@
                     <p class="font-semibold text-gray-600">Large-scale <span class="font-bold">Esports Events</span> successfully executed.</p>
                 </div>
 
-                <!-- Metric 4: Platform Launch -->
+                <!-- Metric 4: Platform Launch - FIX APPLIED: Reduced font size of description for better wrapping -->
                 <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.4s;">
                     <p class="text-5xl font-extrabold mb-2 text-gray-900">GameCentric</p>
-                    <p class="font-semibold text-gray-600">Platform launch, scaling competitive offerings across <span class="font-bold">MENA</span>.</p>
+                    <p class="text-base font-semibold text-gray-600">Platform launch, scaling competitive offerings across <span class="font-bold">MENA</span>.</p>
                 </div>
             </div>
         </div>
@@ -287,12 +291,12 @@
             <h3 class="text-2xl mb-16 section-title">Professional Experience</h3>
 
             <div class="space-y-10">
-                <!-- Job 1: Head of Product -->
+                <!-- Job 1: Head of Product (UPDATED CONTENT) -->
                 <div class="content-card p-8 rounded-2xl shadow-lg hover:shadow-xl" style="animation-delay: 0.8s;">
                     <div class="flex flex-col md:flex-row justify-between items-start mb-4">
                         <div>
                             <h4 class="text-3xl font-bold text-gray-900">Head of Product</h4>
-                            <p class="text-xl font-medium text-gray-600">Iconic Technologies LL.C-Fz "GameCentric"</p>
+                            <p class="text-xl font-medium text-gray-600">Iconic Technologies L.L.C-Fz "Gamecentric"</p>
                         </div>
                         <p class="text-sm font-semibold text-gray-500 md:mt-2">Present</p>
                     </div>
@@ -300,25 +304,37 @@
                         <li class="bullet-point-item">
                             <span class="bullet-icon">&check;</span>
                             <div class="bullet-content">
-                                <span class="bullet-title">Strategic Leadership:</span> Directed end-to-end product lifecycle, ensuring <span class="font-bold">scalability</span> and balancing <span class="font-bold">B2B client needs</span> with <span class="font-bold">B2C player experience</span>.
+                                Directed the project lifecycle for an enterprise platform, incorporating <span class="font-bold">Web3</span> features for player asset ownership and leveraging <span class="font-bold">AI</span> to create dynamic in-game environments and personalized user experiences.
                             </div>
                         </li>
                         <li class="bullet-point-item">
                             <span class="bullet-icon">&check;</span>
                             <div class="bullet-content">
-                                <span class="bullet-title">Operational Excellence:</span> Implemented <span class="font-bold">Agile, Scrum, and Lean</span> practices to optimize cycles and prioritize high-impact features, driving measurable results.
+                                Utilized <span class="font-bold">AI-driven analytics</span> and predictive modeling to analyze player behavior, informing the project roadmap for features related to token-based reward systems.
                             </div>
                         </li>
                         <li class="bullet-point-item">
                             <span class="bullet-icon">&check;</span>
                             <div class="bullet-content">
-                                <span class="bullet-title">Data-Driven Vision:</span> Led <span class="font-bold">Business Intelligence</span> initiatives, leveraging KPIs and market research to guide product strategy and secure multi-level stakeholder alignment.
+                                Introduced <span class="font-bold">automation frameworks</span> for testing and deployment (CI/CD), reducing manual effort and accelerating release cycles for new platform features.
+                            </div>
+                        </li>
+                         <li class="bullet-point-item">
+                            <span class="bullet-icon">&check;</span>
+                            <div class="bullet-content">
+                                Led the adoption of <span class="font-bold">Agile/Scrum</span> methodologies, leading to a <span class="font-bold">25% improvement</span> in development cycle efficiency and a significant reduction in time-to-market.
+                            </div>
+                        </li>
+                         <li class="bullet-point-item">
+                            <span class="bullet-icon">&check;</span>
+                            <div class="bullet-content">
+                                Served as the key point of contact for enterprise partners, managing expectations for projects involving complex technical integrations, including <span class="font-bold">crypto wallets, smart contracts, and AI-powered systems</span>.
                             </div>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Job 2: Product Owner -->
+                <!-- Job 2: Product Owner (UPDATED CONTENT) -->
                 <div class="content-card p-8 rounded-2xl shadow-lg hover:shadow-xl" style="animation-delay: 0.9s;">
                     <div class="flex flex-col md:flex-row justify-between items-start mb-4">
                         <div>
@@ -331,23 +347,35 @@
                         <li class="bullet-point-item">
                             <span class="bullet-icon">&check;</span>
                             <div class="bullet-content">
-                                Managed and executed the esports product roadmap, aligning development with rapid market trends and complex client requirements.
+                                Managed the project roadmap for a client-facing esports platform, researching the application of <span class="font-bold">AI for adaptive difficulty</span> and <span class="font-bold">blockchain</span> for tournament integrity.
                             </div>
                         </li>
                         <li class="bullet-point-item">
                             <span class="bullet-icon">&check;</span>
                             <div class="bullet-content">
-                                Improved platform reliability and <span class="font-bold">User Experience (UX)</span> based on competitor analysis and player insights, leading to higher retention.
+                                Conducted competitor analysis on emerging <span class="font-bold">play-to-earn (P2E) models</span> and AI-driven personalization in gaming to inform project specifications and platform workflows.
+                            </div>
+                        </li>
+                         <li class="bullet-point-item">
+                            <span class="bullet-icon">&check;</span>
+                            <div class="bullet-content">
+                                Oversaw project milestones to improve platform <span class="font-bold">reliability and UX</span>, resulting in higher user retention and engagement.
+                            </div>
+                        </li>
+                         <li class="bullet-point-item">
+                            <span class="bullet-icon">&check;</span>
+                            <div class="bullet-content">
+                                Collaborated with developers, designers, and marketing teams to ensure cohesive and on-time project delivery.
                             </div>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Job 3: Production Manager -->
+                <!-- Job 3: Production Manager (UPDATED CONTENT) -->
                 <div class="content-card p-8 rounded-2xl shadow-lg hover:shadow-xl" style="animation-delay: 1.0s;">
                     <div class="flex flex-col md:flex-row justify-between items-start mb-4">
                         <div>
-                            <h4 class="text-3xl font-bold text-gray-900">Production Manager - Gaming & Esports Events</h4>
+                            <h4 class="text-3xl font-bold text-gray-900">Production Manager - Esports Festival</h4>
                             <p class="text-xl font-medium text-gray-600">Gamers Hub Media Events</p>
                         </div>
                         <p class="text-sm font-semibold text-gray-500 md:mt-2">2019-2022</p>
@@ -356,13 +384,25 @@
                         <li class="bullet-point-item">
                             <span class="bullet-icon">&check;</span>
                             <div class="bullet-content">
-                                Planned and delivered over <span class="font-bold">50 major esports festivals</span> across MENA, meticulously overseeing operations and risk management.
+                                Planned and delivered a portfolio of <span class="font-bold">50+ large-scale digital projects</span> and esports events across MENA.
                             </div>
                         </li>
                         <li class="bullet-point-item">
                             <span class="bullet-icon">&check;</span>
                             <div class="bullet-content">
-                                Successfully secured <span class="font-bold">major sponsors and partners</span>, significantly increasing event revenue and brand reach.
+                                Oversaw all project operations, including <span class="font-bold">resource scheduling, risk management</span>, and cross-functional team coordination.
+                            </div>
+                        </li>
+                         <li class="bullet-point-item">
+                            <span class="bullet-icon">&check;</span>
+                            <div class="bullet-content">
+                                Managed relationships with major <span class="font-bold">sponsors and technical partners</span>, ensuring alignment on deliverables and increasing event revenue.
+                            </div>
+                        </li>
+                         <li class="bullet-point-item">
+                            <span class="bullet-icon">&check;</span>
+                            <div class="bullet-content">
+                                Applied <span class="font-bold">data-driven insights</span> to improve project workflows and participant satisfaction for all events.
                             </div>
                         </li>
                     </ul>
