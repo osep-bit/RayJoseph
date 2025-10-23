@@ -133,6 +133,22 @@
             /* Subtle texture/gradient for depth on light theme */
             background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(243, 244, 246, 0.7) 100%);
         }
+
+        /* Custom styling for the Header Social Icons */
+        .header-social-links {
+            display: flex;
+            align-items: center;
+            margin-top: 4px; /* Slight offset below the title */
+            line-height: 1;
+        }
+        .header-social-links a {
+            color: #6B7280; /* Gray 500 */
+            transition: color 0.2s;
+            margin-right: 8px; /* Spacing between icons */
+        }
+        .header-social-links a:hover {
+            color: var(--accent-primary); /* Emerald Green on hover */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -140,9 +156,28 @@
     <!-- Header & Navigation -->
     <header class="py-5 sticky top-0 z-20 header-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <!-- Navigation Title -->
-            <h1 class="text-3xl font-extrabold tracking-tight" style="color: var(--accent-primary);">PORTFOLIO</h1>
-            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+            
+            <!-- Left Side: Title and Social Media Icons -->
+            <div class="flex flex-col items-start">
+                <h1 class="text-3xl font-extrabold tracking-tight leading-none" style="color: var(--accent-primary);">PORTFOLIO</h1>
+                <div class="header-social-links mt-1">
+                    <a href="https://www.instagram.com/ray.osepd1/" target="_blank" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ray-joseph/" target="_blank" aria-label="LinkedIn">
+                        <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://github.com/osep-bit" target="_blank" aria-label="GitHub">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://www.facebook.com/osepd319" target="_blank" aria-label="Facebook">
+                        <i data-lucide="facebook" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side: Navigation Links and CV Button -->
+            <nav class="hidden md:flex space-x-6 text-sm font-medium items-center">
                 <a href="#impact" class="transition duration-200">Impact & Metrics</a>
                 <a href="#highlights" class="transition duration-200">Highlights</a>
                 <a href="#experience" class="transition duration-200">Experience</a>
@@ -162,32 +197,16 @@
                 <h2 class="text-6xl sm:text-7xl font-extrabold tracking-tight text-gray-900 mb-4">
                     RAY JOSEPH <span class="text-gray-500-override">DIMACUHA</span>
                 </h2>
-                <p class="text-xl hero-text-secondary max-w-2xl mb-8">
+                <p id="about-me-content" class="text-xl hero-text-secondary max-w-2xl mb-8">
                     A <span class="font-semibold">strategic, detail-oriented professional</span> with a proven ability to lead large-scale digital initiatives and <span class="font-semibold">drive quantifiable product growth</span> across the competitive MENA region. Expert in blending long-term strategy with effective hands-on execution.
                 </p>
-                <!-- Quick Contact Block & Social Media (NEW CONTENT ADDED HERE) -->
+                <!-- Quick Contact Block -->
                 <div class="flex items-center space-x-6 flex-wrap">
                     <!-- Existing Contact Links -->
                     <a href="mailto:osep.dimacuha@gmail.com" class="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-xl text-white shadow-xl transition duration-300 mb-4 md:mb-0" style="background-color: var(--accent-primary);">
                         Email Direct
                     </a>
                     <a href="tel:+971582871353" class="hero-text-secondary font-medium hover:text-gray-900 transition duration-200 mb-4 md:mb-0">+971 58 287 1353</a>
-                    
-                    <!-- Social Media Links -->
-                    <div class="flex items-center space-x-3 text-gray-500 ml-0 md:ml-6 pt-4 md:pt-0 border-t md:border-t-0" style="border-color: var(--border-color);">
-                        <a href="https://www.instagram.com/ray.osepd1/" target="_blank" class="hover:text-gray-900 transition duration-200" aria-label="Instagram">
-                            <i data-lucide="instagram" class="w-6 h-6"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/ray-joseph/" target="_blank" class="hover:text-gray-900 transition duration-200" aria-label="LinkedIn">
-                            <i data-lucide="linkedin" class="w-6 h-6"></i>
-                        </a>
-                        <a href="https://github.com/osep-bit" target="_blank" class="hover:text-gray-900 transition duration-200" aria-label="GitHub">
-                            <i data-lucide="github" class="w-6 h-6"></i>
-                        </a>
-                        <a href="https://www.facebook.com/osepd319" target="_blank" class="hover:text-gray-900 transition duration-200" aria-label="Facebook">
-                            <i data-lucide="facebook" class="w-6 h-6"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
             <!-- Profile Image -->
@@ -236,12 +255,12 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: Key Project Highlights -->
+    <!-- Key Project Highlights -->
     <section id="highlights" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-2xl mb-12 section-title">Key Project Highlights</h3>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div id="highlight-content-container" class="grid md:grid-cols-3 gap-8">
                 <!-- Highlight 1: Platform Scalability (GameCentric) -->
                 <div class="highlight-item rounded-xl" style="animation-delay: 0.5s;">
                     <h4 class="text-xl font-bold mb-2 text-gray-900 flex items-center">
@@ -283,7 +302,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-2xl mb-16 section-title">Professional Experience</h3>
 
-            <div class="space-y-10">
+            <div id="experience-content-container" class="space-y-10">
                 <!-- Job 1: Head of Product (UPDATED CONTENT) -->
                 <div class="content-card p-8 rounded-2xl" style="animation-delay: 0.8s;">
                     <div class="flex flex-col md:flex-row justify-between items-start mb-4">
@@ -519,9 +538,8 @@
         </div>
     </footer>
     
-    <!-- Script to render Lucide icons -->
+    <!-- Script to render Lucide icons and handle scroll observer for animations -->
     <script>
-        // Use Intersection Observer to trigger the fade-in animation on scroll
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
