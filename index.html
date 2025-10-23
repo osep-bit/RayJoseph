@@ -109,6 +109,13 @@
             font-weight: 800; 
             align-items: flex-start; /* Ensure title aligns to top with icon */
         }
+        /* New class for fixing vertical centering inside highlight card */
+        .highlight-inner-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center content */
+        }
         
         /* SKILLS PILL FIX: Added items-center to parent span */
         .pill {
@@ -270,38 +277,45 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-2xl mb-12 section-title">Key Project Highlights</h3>
 
-            <div id="highlight-content-container" class="grid md:grid-cols-3 gap-8">
+            <!-- FIX APPLIED HERE: Added flex and items-stretch to container -->
+            <div id="highlight-content-container" class="grid md:grid-cols-3 gap-8 items-stretch">
                 <!-- Highlight 1: Platform Scalability (GameCentric) -->
                 <div class="highlight-item rounded-xl" style="animation-delay: 0.5s;">
-                    <h4 class="text-xl font-extrabold mb-2 text-gray-900 flex items-center">
-                        <i data-lucide="monitor" class="w-6 h-6 mr-3" style="color: var(--accent-primary);"></i>
-                        Platform Delivery & Scalability
-                    </h4>
-                    <p class="text-base text-gray-700">
-                        Spearheaded the development and launch of the <span class="font-bold">GameCentric</span> esports platform, directing teams of 30+ engineers, designers, and QA to deliver a complex enterprise and consumer product on time and within scope.
-                    </p>
+                    <div class="highlight-inner-content h-full p-6 flex flex-col justify-center">
+                        <h4 class="text-xl font-extrabold mb-2 text-gray-900 flex items-start">
+                            <i data-lucide="monitor" class="w-6 h-6 mr-3 mt-1" style="color: var(--accent-primary);"></i>
+                            Platform Delivery & Scalability
+                        </h4>
+                        <p class="text-base text-gray-700">
+                            Spearheaded the development and launch of the <span class="font-bold">GameCentric</span> esports platform, directing teams of 30+ engineers, designers, and QA to deliver a complex enterprise and consumer product on time and within scope.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Highlight 2: Agile Transformation -->
                 <div class="highlight-item rounded-xl" style="animation-delay: 0.6s;">
-                    <h4 class="text-xl font-extrabold mb-2 text-gray-900 flex items-center">
-                        <i data-lucide="iteration-ccw" class="w-6 h-6 mr-3" style="color: var(--accent-primary);"></i>
-                        Agile & Process Transformation
-                    </h4>
-                    <p class="text-base text-gray-700">
-                        Led the adoption of <span class="font-bold">Agile, Scrum, and Lean</span> methodologies across the development division, successfully streamlining cycles and increasing overall project delivery efficiency by <span class="font-bold">25%</span>.
-                    </p>
+                     <div class="highlight-inner-content h-full p-6 flex flex-col justify-center">
+                        <h4 class="text-xl font-extrabold mb-2 text-gray-900 flex items-start">
+                            <i data-lucide="iteration-ccw" class="w-6 h-6 mr-3 mt-1" style="color: var(--accent-primary);"></i>
+                            Agile & Process Transformation
+                        </h4>
+                        <p class="text-base text-gray-700">
+                            Led the adoption of <span class="font-bold">Agile, Scrum, and Lean</span> methodologies across the development division, successfully streamlining cycles and increasing overall project delivery efficiency by <span class="font-bold">25%</span>.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Highlight 3: Event Success & Sponsorship -->
                 <div class="highlight-item rounded-xl" style="animation-delay: 0.7s;">
-                    <h4 class="text-xl font-extrabold mb-2 text-gray-900 flex items-center">
-                        <i data-lucide="award" class="w-6 h-6 mr-3" style="color: var(--accent-primary);"></i>
-                        Revenue & Event Execution
-                    </h4>
-                    <p class="text-base text-gray-700">
-                        Oversaw the production of <span class="font-bold">50+ large-scale esports events</span>, consistently securing major sponsorships and partnerships that drove significant increases in event revenue and brand reach.
-                    </p>
+                     <div class="highlight-inner-content h-full p-6 flex flex-col justify-center">
+                        <h4 class="text-xl font-extrabold mb-2 text-gray-900 flex items-start">
+                            <i data-lucide="award" class="w-6 h-6 mr-3 mt-1" style="color: var(--accent-primary);"></i>
+                            Revenue & Event Execution
+                        </h4>
+                        <p class="text-base text-gray-700">
+                            Oversaw the production of <span class="font-bold">50+ large-scale esports events</span>, consistently securing major sponsorships and partnerships that drove significant increases in event revenue and brand reach.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
