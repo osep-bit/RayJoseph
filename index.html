@@ -84,6 +84,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            /* FIX FOR WRAPPING: Ensure padding is respected on wrapping text */
+            padding: 1.5rem;
         }
         /* Change metric box text to dark for light theme */
         .metric-box p { color: var(--text-dark) !important; }
@@ -180,12 +182,29 @@
                 <p class="text-xl hero-text-secondary max-w-2xl mb-8">
                     A <span class="font-semibold">strategic, detail-oriented professional</span> with a proven ability to lead large-scale digital initiatives and <span class="font-semibold">drive quantifiable product growth</span> across the competitive MENA region. Expert in blending long-term strategy with effective hands-on execution.
                 </p>
-                <!-- Quick Contact Block -->
-                <div class="flex items-center space-x-6">
-                    <a href="mailto:osep.dimacuha@gmail.com" class="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-xl text-white shadow-xl transition duration-300" style="background-color: var(--accent-primary);">
+                <!-- Quick Contact Block & Social Media (NEW CONTENT ADDED HERE) -->
+                <div class="flex items-center space-x-6 flex-wrap">
+                    <!-- Existing Contact Links -->
+                    <a href="mailto:osep.dimacuha@gmail.com" class="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-xl text-white shadow-xl transition duration-300 mb-4 md:mb-0" style="background-color: var(--accent-primary);">
                         Email Direct
                     </a>
-                    <a href="tel:+971582871353" class="hero-text-secondary font-medium hover:text-gray-900 transition duration-200">+971 58 287 1353</a>
+                    <a href="tel:+971582871353" class="hero-text-secondary font-medium hover:text-gray-900 transition duration-200 mb-4 md:mb-0">+971 58 287 1353</a>
+                    
+                    <!-- Social Media Links -->
+                    <div class="flex items-center space-x-3 text-gray-500 ml-0 md:ml-6 pt-4 md:pt-0 border-t md:border-t-0" style="border-color: var(--border-color);">
+                        <a href="https://www.instagram.com/ray.osepd1/" target="_blank" class="hover:text-gray-900 transition duration-200" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ray-joseph/" target="_blank" class="hover:text-gray-900 transition duration-200" aria-label="LinkedIn">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://github.com/osep-bit" target="_blank" class="hover:text-gray-900 transition duration-200" aria-label="GitHub">
+                            <i data-lucide="github" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://www.facebook.com/osepd319" target="_blank" class="hover:text-gray-900 transition duration-200" aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- Profile Image -->
@@ -210,28 +229,29 @@
             <h3 class="text-2xl mb-12 section-title">Impact & Metrics</h3>
 
             <div class="grid md:grid-cols-4 gap-8">
-                <!-- Metric 1: Efficiency -->
+                
+                <!-- Metric 1 (Index 1): Platform Launch (Moved to first position and slightly adjusted) -->
                 <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.1s;">
+                    <p class="text-5xl font-extrabold mb-2 text-gray-900 leading-none">GameCentric</p>
+                    <p class="text-base font-semibold text-gray-600 mt-2">Flagship platform scaled to serve the <span class="font-bold">MENA</span> competitive gaming market.</p>
+                </div>
+
+                <!-- Metric 2 (Index 2): Team Size (Kept content, adjusted order/delay) -->
+                <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.2s;">
+                    <p class="text-5xl font-extrabold mb-2 text-gray-900">30+</p>
+                    <p class="font-semibold text-gray-600">Cross-functional engineers & designers led, spanning <span class="font-bold">QA</span> and <span class="font-bold">design</span>.</p>
+                </div>
+
+                <!-- Metric 3 (Index 3): Efficiency (Kept content, adjusted order/delay) -->
+                <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.3s;">
                     <p class="text-5xl font-extrabold mb-2 text-gray-900">25%</p>
                     <p class="font-semibold text-gray-600">Development Efficiency Increase via <span class="font-bold">Agile</span> adoption.</p>
                 </div>
 
-                <!-- Metric 2: Team Size -->
-                <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.2s;">
-                    <p class="text-5xl font-extrabold mb-2 text-gray-900">30+</p>
-                    <p class="font-semibold text-gray-600">Cross-functional engineers & designers led.</p>
-                </div>
-
-                <!-- Metric 3: Events Delivered -->
-                <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.3s;">
-                    <p class="text-5xl font-extrabold mb-2 text-gray-900">50+</p>
-                    <p class="font-semibold text-gray-600">Large-scale <span class="font-bold">Esports Events</span> successfully executed.</p>
-                </div>
-
-                <!-- Metric 4: Platform Launch - FIX APPLIED: Reduced font size of description for better wrapping -->
+                <!-- Metric 4 (Index 4): Events Delivered (Kept content, adjusted order/delay) -->
                 <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.4s;">
-                    <p class="text-5xl font-extrabold mb-2 text-gray-900">GameCentric</p>
-                    <p class="text-base font-semibold text-gray-600">Platform launch, scaling competitive offerings across <span class="font-bold">MENA</span>.</p>
+                    <p class="text-5xl font-extrabold mb-2 text-gray-900">50+</p>
+                    <p class="font-semibold text-gray-600">Large-scale <span class="font-bold">Esports Events</span> successfully executed and sponsored.</p>
                 </div>
             </div>
         </div>
