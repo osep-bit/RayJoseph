@@ -9,9 +9,16 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
+        /* Keyframe for subtle fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         :root {
-            --bg-light: #FFFFFF; /* White background */
-            --text-dark: #111827; /* Dark text (Gray 900) */
+            --bg-light: #FFFFFF; /* Pure White */
+            --bg-alt-light: #F3F4F6; /* Light Gray (Gray 100) for alternate sections */
+            --text-dark: #1F2937; /* Dark Gray (Gray 800) for primary text */
             --accent-primary: #10B981; /* Emerald Green - Clean, professional */
             --accent-light: #6EE7B7; /* Emerald 300 - Subtle highlight */
             --border-color: #E5E7EB; /* Light border (Gray 200) */
@@ -22,42 +29,70 @@
             color: var(--text-dark);
             line-height: 1.6;
         }
+        /* Color adjustments for light theme */
+        .text-gray-900 { color: var(--text-dark); }
+        .text-gray-600 { color: #4B5563; /* Medium Dark Gray */ }
+        .text-gray-500 { color: #6B7280; /* Medium Gray */ }
+        .text-white { color: var(--text-dark); } /* Overriding white text in sections like headings */
+
         .section-title {
             letter-spacing: 0.1em;
             color: var(--accent-primary);
             font-weight: 700;
             text-transform: uppercase;
         }
-        /* Updated pill styling to include flex for icon placement */
+        
+        /* Updated pill styling for light theme */
         .pill {
-            background-color: #F3F4F6; /* Light gray background for skills */
+            background-color: var(--bg-alt-light); 
             color: var(--text-dark);
             border: 1px solid var(--border-color);
             transition: background-color 0.3s ease;
-            display: flex; /* Enable flex for icon alignment */
-            align-items: center; /* Vertically center icon and text */
+            display: flex;
+            align-items: center;
         }
         .pill:hover {
-            background-color: var(--accent-light);
-            color: var(--text-dark);
+            background-color: #E5E7EB; /* Subtle darker gray hover */
         }
+        
+        /* Updated card styling for light theme */
         .content-card {
             background-color: var(--bg-light);
             border: 1px solid var(--border-color);
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05); /* Subtle shadow on light theme */
+            /* Applying animation class for scroll-triggered effect */
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0; /* Start invisible for animation */
         }
         .content-card:hover {
-            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1), 0 4px 6px -2px rgba(16, 185, 129, 0.05); /* Subtle green glow on hover */
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1), 0 4px 6px -2px rgba(16, 185, 129, 0.05); /* Subtle green glow on light hover */
+            transform: translateY(-5px); /* Lift slightly on hover */
         }
+        /* Specific text color fix for job experience content */
+        .text-gray-700 { color: #374151; /* Dark Gray (Gray 700) for readability on white cards */ }
+
+
+        /* Other component styles */
         .metric-box {
-            background-color: #F9FAFB;
+            background-color: var(--bg-light);
             border-left: 4px solid var(--accent-primary);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
         }
+        /* Change metric box text to dark for light theme */
+        .metric-box p { color: var(--text-dark) !important; }
+        .metric-box .text-gray-300 { color: #4B5563 !important; }
+
         .header-nav {
             background-color: var(--bg-light);
             border-bottom: 1px solid var(--border-color);
         }
-        /* Custom classes for fixing text wrap issue */
+        .header-nav a { color: #4B5563; } /* Default nav links color */
+        .header-nav a:hover { color: #1F2937; } /* Hover nav links color */
+
+        /* Custom classes for fixing text wrap issue (keeping checkmark green) */
         .bullet-point-item {
             display: flex;
             align-items: flex-start;
@@ -65,28 +100,37 @@
         .bullet-icon {
             color: #10B981; /* Green checkmark */
             font-size: 1.25rem;
-            margin-right: 0.75rem; /* Equivalent to Tailwind mr-3 */
+            margin-right: 0.75rem; 
             line-height: 1;
-            flex-shrink: 0; /* Ensures the checkmark doesn't shrink */
+            flex-shrink: 0;
         }
         .bullet-content {
             flex-grow: 1;
         }
         .bullet-title {
             font-weight: bold;
-            display: inline-block; /* Makes sure the title and colon stay together */
+            display: inline-block;
             margin-right: 0.25rem;
         }
-        /* New styling for Contact Card alignment and centering */
+        
+        /* Contact Card adjustments */
         .contact-card-content {
             display: flex;
-            flex-direction: column; /* Stack Title/Detail vertically */
-            text-align: left; /* Align text content to the left */
+            flex-direction: column;
+            text-align: left;
         }
         .contact-card-icon-wrapper {
-            flex-shrink: 0; /* Ensures the icon doesn't shrink */
-            margin-right: 1rem; /* Space between icon and text */
+            flex-shrink: 0;
+            margin-right: 1rem;
         }
+        /* Background fix for alternate sections */
+        #impact, #skills {
+            background-color: var(--bg-alt-light);
+        }
+        /* Text color adjustment for Hero section text (FIXED) */
+        .hero-text-secondary { color: #374151; } /* Darker gray (Gray 700) for high readability */
+        .text-gray-500-override { color: #4B5563; } /* Gray 600 */
+        .text-gray-500 { color: #6B7280; }
     </style>
 </head>
 <body class="antialiased">
@@ -94,12 +138,14 @@
     <!-- Header & Navigation -->
     <header class="py-5 sticky top-0 z-20 header-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <h1 class="text-3xl font-extrabold tracking-tight" style="color: var(--accent-primary);">RAY</h1>
-            <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
-                <a href="#impact" class="hover:text-gray-900 transition duration-200">Impact & Metrics</a>
-                <a href="#experience" class="hover:text-gray-900 transition duration-200">Experience</a>
-                <a href="#skills" class="hover:text-gray-900 transition duration-200">Competencies</a>
-                <a href="#contact" class="px-4 py-2 rounded-lg text-white font-semibold shadow-md" style="background-color: var(--accent-primary); hover-bg-color: #059669;">Connect</a>
+            <!-- Navigation Title -->
+            <h1 class="text-3xl font-extrabold tracking-tight" style="color: var(--accent-primary);">PORTFOLIO</h1>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#impact" class="transition duration-200">Impact & Metrics</a>
+                <a href="#experience" class="transition duration-200">Experience</a>
+                <a href="#skills" class="transition duration-200">Competencies</a>
+                <!-- UPDATED BUTTON: Link points to the precise filename "Ray Joseph - TPM.pdf" -->
+                <a href="./Ray Joseph - TPM.pdf" download="Ray_Joseph_TPM_CV.pdf" class="px-4 py-2 rounded-lg text-white font-semibold shadow-md transition duration-200" style="background-color: var(--accent-primary); color: white; hover-bg-color: #059669;">My CV (PDF)</a>
             </nav>
         </div>
     </header>
@@ -109,26 +155,28 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-16 items-center">
             <!-- Text Content -->
             <div class="md:col-span-2">
-                <p class="text-xl mb-3 font-medium text-gray-500">Head of Product | Gaming & Esports Leader</p>
+                <p class="text-xl mb-3 font-medium hero-text-secondary">Head of Product | Gaming & Esports Leader</p>
                 <h2 class="text-6xl sm:text-7xl font-extrabold tracking-tight text-gray-900 mb-4">
-                    RAY JOSEPH <span class="text-gray-500">DIMACUHA</span>
+                    RAY JOSEPH <span class="text-gray-500-override">DIMACUHA</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mb-8">
+                <!-- FIX APPLIED HERE: Changed text-gray-300 to hero-text-secondary -->
+                <p class="text-xl hero-text-secondary max-w-2xl mb-8">
                     A <span class="font-semibold">strategic, detail-oriented professional</span> with a proven ability to lead large-scale digital initiatives and <span class="font-semibold">drive quantifiable product growth</span> across the competitive MENA region. Expert in blending long-term strategy with effective hands-on execution.
                 </p>
                 <!-- Quick Contact Block -->
                 <div class="flex items-center space-x-6">
-                    <a href="mailto:osep.dimacuha@gmail.com" class="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-xl text-white shadow-xl" style="background-color: var(--accent-primary);">
+                    <a href="mailto:osep.dimacuha@gmail.com" class="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-xl text-white shadow-xl transition duration-300" style="background-color: var(--accent-primary);">
                         Email Direct
                     </a>
-                    <a href="tel:+971582871353" class="text-gray-600 font-medium hover:text-gray-900 transition duration-200">+971 58 287 1353</a>
+                    <a href="tel:+971582871353" class="hero-text-secondary font-medium hover:text-gray-900 transition duration-200">+971 58 287 1353</a>
                 </div>
             </div>
             <!-- Profile Image -->
             <div class="md:col-span-1 flex justify-center md:justify-end">
-                <div class="w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition duration-500">
+                <div class="w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-100 transform hover:scale-[1.02] transition duration-500">
                     <!-- 
-                        *** ACTION REQUIRED: REPLACE THE SRC BELOW WITH YOUR IMAGE'S PUBLIC URL OR BASE64 STRING ***
+                        *** IMAGE SRC IS SET TO YOUR UPLOADED FILE NAME 'Ray Joseph.jpg' ***
+                        If you deploy this to GitHub, ensure the file name matches exactly (case-sensitive).
                     -->
                     <img src="./Ray Joseph.jpg"
                          alt="Ray Joseph Dimacuha Professional Profile Image"
@@ -146,27 +194,27 @@
 
             <div class="grid md:grid-cols-4 gap-8">
                 <!-- Metric 1: Efficiency -->
-                <div class="metric-box p-6 rounded-xl shadow-sm">
-                    <p class="text-5xl font-extrabold text-gray-900 mb-2">25%</p>
-                    <p class="text-gray-600 font-semibold">Development Efficiency Increase via <span class="font-bold">Agile</span> adoption.</p>
+                <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.1s;">
+                    <p class="text-5xl font-extrabold mb-2 text-gray-900">25%</p>
+                    <p class="font-semibold text-gray-600">Development Efficiency Increase via <span class="font-bold">Agile</span> adoption.</p>
                 </div>
 
                 <!-- Metric 2: Team Size -->
-                <div class="metric-box p-6 rounded-xl shadow-sm">
-                    <p class="text-5xl font-extrabold text-gray-900 mb-2">30+</p>
-                    <p class="text-gray-600 font-semibold">Cross-functional engineers & designers led.</p>
+                <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.2s;">
+                    <p class="text-5xl font-extrabold mb-2 text-gray-900">30+</p>
+                    <p class="font-semibold text-gray-600">Cross-functional engineers & designers led.</p>
                 </div>
 
                 <!-- Metric 3: Events Delivered -->
-                <div class="metric-box p-6 rounded-xl shadow-sm">
-                    <p class="text-5xl font-extrabold text-gray-900 mb-2">50+</p>
-                    <p class="text-gray-600 font-semibold">Large-scale <span class="font-bold">Esports Events</span> successfully executed.</p>
+                <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.3s;">
+                    <p class="text-5xl font-extrabold mb-2 text-gray-900">50+</p>
+                    <p class="font-semibold text-gray-600">Large-scale <span class="font-bold">Esports Events</span> successfully executed.</p>
                 </div>
 
                 <!-- Metric 4: Platform Launch -->
-                <div class="metric-box p-6 rounded-xl shadow-sm">
-                    <p class="text-5xl font-extrabold text-gray-900 mb-2">GameCentric</p>
-                    <p class="text-gray-600 font-semibold">Platform launch, scaling competitive offerings across <span class="font-bold">MENA</span>.</p>
+                <div class="metric-box p-6 rounded-xl shadow-sm" style="animation-delay: 0.4s;">
+                    <p class="text-5xl font-extrabold mb-2 text-gray-900">GameCentric</p>
+                    <p class="font-semibold text-gray-600">Platform launch, scaling competitive offerings across <span class="font-bold">MENA</span>.</p>
                 </div>
             </div>
         </div>
@@ -179,7 +227,7 @@
 
             <div class="space-y-10">
                 <!-- Job 1: Head of Product -->
-                <div class="content-card p-8 rounded-2xl shadow-lg hover:shadow-xl">
+                <div class="content-card p-8 rounded-2xl shadow-lg hover:shadow-xl" style="animation-delay: 0.5s;">
                     <div class="flex flex-col md:flex-row justify-between items-start mb-4">
                         <div>
                             <h4 class="text-3xl font-bold text-gray-900">Head of Product</h4>
@@ -210,7 +258,7 @@
                 </div>
 
                 <!-- Job 2: Product Owner -->
-                <div class="content-card p-8 rounded-2xl shadow-lg hover:shadow-xl">
+                <div class="content-card p-8 rounded-2xl shadow-lg hover:shadow-xl" style="animation-delay: 0.6s;">
                     <div class="flex flex-col md:flex-row justify-between items-start mb-4">
                         <div>
                             <h4 class="text-3xl font-bold text-gray-900">Product Owner - Esports Platform</h4>
@@ -235,7 +283,7 @@
                 </div>
 
                 <!-- Job 3: Production Manager -->
-                <div class="content-card p-8 rounded-2xl shadow-lg hover:shadow-xl">
+                <div class="content-card p-8 rounded-2xl shadow-lg hover:shadow-xl" style="animation-delay: 0.7s;">
                     <div class="flex flex-col md:flex-row justify-between items-start mb-4">
                         <div>
                             <h4 class="text-3xl font-bold text-gray-900">Production Manager - Gaming & Esports Events</h4>
@@ -320,7 +368,7 @@
                 </div>
 
                 <!-- Education Column -->
-                <div class="lg:col-span-1 content-card p-6 rounded-xl shadow-md">
+                <div class="lg:col-span-1 content-card p-6 rounded-xl shadow-md" style="animation-delay: 0.8s;">
                     <h3 class="text-lg mb-3 section-title">Education</h3>
                     <div class="space-y-1">
                         <p class="text-lg font-bold text-gray-900">B.S. Information & Comm. Tech</p>
@@ -333,7 +381,7 @@
     </section>
 
     <!-- Contact Footer Section -->
-    <footer id="contact" class="py-16 border-t border-gray-200">
+    <footer id="contact" class="py-16 border-t" style="border-color: var(--border-color);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="text-4xl font-extrabold text-gray-900 mb-4">Let's Connect</h3>
             <p class="text-lg text-gray-600 max-w-xl mx-auto mb-10">
@@ -342,7 +390,7 @@
 
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
                 <!-- Phone -->
-                <div class="content-card p-4 rounded-xl shadow-md flex items-center justify-center">
+                <div class="content-card p-4 rounded-xl shadow-md flex items-center justify-center" style="animation-delay: 0.9s;">
                     <div class="contact-card-icon-wrapper">
                          <i data-lucide="phone" class="w-6 h-6 text-gray-500"></i>
                     </div>
@@ -352,7 +400,7 @@
                     </div>
                 </div>
                 <!-- Email -->
-                <div class="content-card p-4 rounded-xl shadow-md flex items-center justify-center">
+                <div class="content-card p-4 rounded-xl shadow-md flex items-center justify-center" style="animation-delay: 1.0s;">
                     <div class="contact-card-icon-wrapper">
                          <i data-lucide="mail" class="w-6 h-6 text-gray-500"></i>
                     </div>
@@ -362,7 +410,7 @@
                     </div>
                 </div>
                 <!-- Location -->
-                <div class="content-card p-4 rounded-xl shadow-md flex items-center justify-center">
+                <div class="content-card p-4 rounded-xl shadow-md flex items-center justify-center" style="animation-delay: 1.1s;">
                     <div class="contact-card-icon-wrapper">
                          <i data-lucide="map-pin" class="w-6 h-6 text-gray-500"></i>
                     </div>
@@ -373,19 +421,33 @@
                 </div>
             </div>
 
-            <p class="mt-16 text-sm text-gray-400">Built with <span style="color: var(--accent-primary);">&hearts;</span> | &copy; 2025 RAY JOSEPH DIMACUHA.</p>
+            <p class="mt-16 text-sm text-gray-500">Built with <span style="color: var(--accent-primary);">&hearts;</span> | &copy; 2025 RAY JOSEPH DIMACUHA.</p>
         </div>
     </footer>
     
     <!-- Script to render Lucide icons -->
     <script>
-        // Ensure Lucide icons are rendered after the content is loaded
+        // Use Intersection Observer to trigger the fade-in animation on scroll
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            // Apply observer to all animated elements
+            document.querySelectorAll('.content-card, .metric-box').forEach(card => {
+                observer.observe(card);
+            });
         });
     </script>
 </body>
 </html>
-
