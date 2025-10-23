@@ -16,9 +16,9 @@
         }
 
         :root {
-            /* DARK THEME VARIABLES */
-            --bg-dark: #0F172A; /* Deep Slate (Slate 900) */
-            --bg-alt-dark: #1E293B; /* Slate 800 for alternate sections */
+            /* DARK THEME VARIABLES (DEEPER BLACK TONE) */
+            --bg-dark: #050817; /* Near Black */
+            --bg-alt-dark: #101427; /* Dark Slate for cards/alternate sections */
             --text-light: #F8FAFC; /* Light Gray (Slate 50) for primary text */
             --text-secondary: #CBD5E1; /* Slate 300 for secondary text */
             --text-body-bright: #E2E8F0; /* Slate 200 for maximum contrast in body text */
@@ -31,13 +31,13 @@
             color: var(--text-light);
             line-height: 1.6;
         }
-        /* Color adjustments for Dark Theme */
-        .text-gray-900 { color: var(--text-light); } /* Main titles/large text */
-        .text-gray-600 { color: var(--text-body-bright); } /* Secondary text in metrics/cards */
-        .text-gray-500 { color: #94A3B8; /* Slate 400 */ }
-        .text-gray-700 { color: var(--text-body-bright); } /* Experience/Highlight content color */
-        .text-white { color: var(--text-light); } 
         
+        /* General Typography Fixes for Dark Theme Readability */
+        .text-gray-900 { color: var(--text-light) !important; } 
+        .text-gray-600 { color: var(--text-body-bright); } 
+        .text-gray-700 { color: var(--text-body-bright); } 
+        .text-gray-500 { color: #94A3B8; /* Slate 400 - for timestamps/minor notes */ }
+
         .section-title {
             letter-spacing: 0.1em;
             color: var(--accent-primary);
@@ -45,20 +45,16 @@
             text-transform: uppercase;
         }
         
-        /* Updated pill styling for dark theme */
-        .pill {
-            background-color: var(--bg-alt-dark); 
-            color: var(--text-secondary);
-            border: 1px solid var(--border-color);
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
+        /* Hero Title Elegance Fix */
+        .hero-name-primary {
+            text-shadow: 0 0 5px rgba(16, 185, 129, 0.2); 
+            color: var(--text-light);
         }
-        .pill:hover {
-            background-color: #334155; /* Slate 700 hover */
+        .hero-name-secondary {
+            color: var(--text-secondary);
         }
         
-        /* Glassmorphism & Accent Shadowing for Cards in Dark Theme */
+        /* Card Styling (Glassmorphism & Shadow) */
         .content-card, .metric-box, .highlight-item {
             background-color: var(--bg-alt-dark); 
             border: 1px solid var(--border-color);
@@ -68,12 +64,11 @@
             opacity: 0;
         }
         .content-card:hover, .metric-box:hover, .highlight-item:hover {
-            /* Custom Emerald Shadow for elegant lift */
             box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.3), 0 4px 6px -2px rgba(16, 185, 129, 0.15); 
             transform: translateY(-5px); 
         }
 
-        /* Other component styles */
+        /* Metric Box Fixes */
         .metric-box {
             border-left: 4px solid var(--accent-primary);
             padding: 1.5rem;
@@ -81,47 +76,72 @@
             flex-direction: column;
             justify-content: space-between;
         }
-
+        .metric-box-number {
+            color: var(--accent-primary) !important; 
+        }
+        
         /* Header Polish - Dark Theme */
         .header-nav {
-            background-color: rgba(15, 23, 42, 0.95); /* Semi-transparent Slate 900 */
+            background-color: rgba(5, 8, 23, 0.98); 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: none;
-            box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3); /* Floating effect */
+            box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5); 
         }
-        /* FIX: Ensure nav links are readable */
         .header-nav a { color: var(--text-secondary); } 
         .header-nav a:hover { color: var(--text-light); } 
 
-        /* Custom classes for fixing text wrap issue (keeping checkmark green) */
+        /* Custom Content Styling */
+        .hero-text-secondary { color: var(--text-body-bright); } 
+        .ub-logo {
+            filter: invert(1) brightness(1.8); 
+            width: 100%; 
+            max-width: 120px; 
+            height: auto;
+            border-radius: 0; 
+        }
+
+        /* EXPERIENCE SECTION ALIGNMENT & FONT COLOR FIXES */
         .bullet-point-item { display: flex; align-items: flex-start; }
         .bullet-icon { color: #10B981; font-size: 1.25rem; margin-right: 0.75rem; line-height: 1; flex-shrink: 0; }
-        .bullet-content { flex-grow: 1; }
+        .bullet-content { 
+            flex-grow: 1; 
+            color: var(--text-body-bright) !important; 
+        }
         .bullet-title { font-weight: bold; display: inline-block; margin-right: 0.25rem; }
+
+        /* HIGHLIGHTS SECTION FONT FIX */
+        .highlight-item h4 {
+            font-weight: 800; 
+        }
         
+        /* SKILLS PILL FIX (Text readability) */
+        .pill {
+            /* Ensuring pill content is legible against the dark background */
+            background-color: rgba(255, 255, 255, 0.05); /* Very light background for contrast */
+            color: var(--text-secondary); /* Text color must be light */
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .pill:hover {
+            background-color: rgba(16, 185, 129, 0.1); /* Subtle green hover */
+            color: var(--text-light);
+        }
+
         /* Background fix for alternate sections */
         #impact, #skills { background-color: var(--bg-alt-dark); }
         
-        /* FIX: Ensure secondary hero text is bright enough */
-        .hero-text-secondary { color: var(--text-body-bright); } 
-        .text-gray-500-override { color: var(--text-body-bright); } 
-        .text-gray-500 { color: #94A3B8; }
-
-        .highlight-item {
-            border-left: 3px solid var(--accent-primary);
-            padding: 1rem 1.5rem; 
-        }
-
         /* CSS Parallax Effect for Hero Background */
         #hero {
             background-attachment: fixed; 
             background-size: cover;
             background-position: center top; 
-            background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%);
+            background-image: linear-gradient(180deg, rgba(5, 8, 23, 0.9) 0%, rgba(16, 20, 40, 0.7) 100%);
         }
 
-        /* Custom styling for the Header Social Icons */
+        /* Header Social Icons */
         .header-social-links { display: flex; align-items: center; margin-top: 4px; line-height: 1; }
         .header-social-links a {
             color: var(--text-secondary); 
@@ -129,14 +149,19 @@
             margin-right: 8px;
         }
         .header-social-links a:hover { color: var(--accent-primary); }
-        
-        /* Custom styling for the logo image in Education section */
-        .ub-logo {
-            width: 100%; 
-            max-width: 120px; 
-            height: auto;
-            border-radius: 0; 
-            filter: brightness(1.2); 
+
+        /* Contact Icon Contrast Fix */
+        .contact-card-icon-wrapper i {
+            color: #CBD5E1 !important; /* Slate 300 for better visibility */
+        }
+        /* Education Card Content Alignment Fix */
+        .education-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            justify-content: center; /* Center content vertically */
+            height: 100%; /* Ensure content takes full height of the card */
+            padding-top: 1rem;
         }
     </style>
 </head>
@@ -171,7 +196,7 @@
                 <a href="#highlights" class="transition duration-200">Highlights</a>
                 <a href="#experience" class="transition duration-200">Experience</a>
                 <a href="#skills" class="transition duration-200">Competencies</a>
-                <!-- CV Button - FIX: Ensure text color is dark on the bright button -->
+                <!-- CV Button - Text is dark for contrast on the accent color -->
                 <a href="./Ray Joseph - TPM.pdf" download="Ray_Joseph_TPM_CV.pdf" class="px-4 py-2 rounded-lg font-semibold shadow-md transition duration-200" style="background-color: var(--accent-primary); color: var(--bg-dark); hover-bg-color: #059669;">My CV (PDF)</a>
             </nav>
         </div>
@@ -183,21 +208,20 @@
             <!-- Text Content -->
             <div class="md:col-span-2">
                 <p class="text-xl mb-3 font-medium hero-text-secondary">Head of Product | Gaming & Esports Leader</p>
-                <h2 class="text-6xl sm:text-7xl font-extrabold tracking-tight text-gray-900 mb-4">
-                    RAY JOSEPH <span class="text-gray-500-override">DIMACUHA</span>
+                <h2 class="text-6xl sm:text-7xl font-extrabold tracking-tight mb-4 hero-name-primary">
+                    RAY JOSEPH <span class="hero-name-secondary">DIMACUHA</span>
                 </h2>
-                <!-- FIX: Ensure text color is secondary for readability -->
+                <!-- About Me Content -->
                 <p id="about-me-content" class="text-xl hero-text-secondary max-w-2xl mb-8">
                     A <span class="font-semibold">strategic, detail-oriented professional</span> with a proven ability to lead large-scale digital initiatives and <span class="font-semibold">drive quantifiable product growth</span> across the competitive MENA region. Expert in blending long-term strategy with effective hands-on execution.
                 </p>
                 <!-- Quick Contact Block -->
                 <div class="flex items-center space-x-6 flex-wrap">
-                    <!-- Existing Contact Links -->
-                    <!-- FIX: Ensure text color is dark on the bright button -->
+                    <!-- Email Button - Text is dark for contrast on the accent color -->
                     <a href="mailto:osep.dimacuha@gmail.com" class="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold rounded-xl shadow-xl transition duration-300 mb-4 md:mb-0" style="background-color: var(--accent-primary); color: var(--bg-dark);">
                         Email Direct
                     </a>
-                    <!-- FIX: Ensure phone number is light text -->
+                    <!-- Phone Number - Uses body-bright for clean contrast -->
                     <a href="tel:+971582871353" class="text-lg font-medium hover:text-white transition duration-200 mb-4 md:mb-0" style="color: var(--text-body-bright) !important;">+971 58 287 1353</a>
                 </div>
             </div>
@@ -220,31 +244,31 @@
 
             <div class="grid md:grid-cols-4 gap-8">
                 
-                <!-- Metric 1 (Index 1): Platform Launch (Now GC) -->
+                <!-- Metric 1: GC (GameCentric) -->
                 <div class="metric-box p-6 rounded-xl" style="animation-delay: 0.1s;">
-                    <!-- FIX: Metric number must be bright light color -->
-                    <p class="text-5xl font-extrabold mb-2 leading-none" style="color: var(--text-light) !important;">GC</p>
+                    <!-- FIX: Metric number must use accent color for impact -->
+                    <p class="text-5xl font-extrabold mb-2 leading-none metric-box-number">GC</p>
                     <p class="text-base font-semibold text-gray-600 mt-2"><span class="font-bold">GC (GameCentric)</span> flagship platform scaled to serve the <span class="font-bold">MENA</span> competitive gaming market.</p>
                 </div>
 
-                <!-- Metric 2 (Index 2): Team Size (Kept content, adjusted order/delay) -->
+                <!-- Metric 2: Team Size -->
                 <div class="metric-box p-6 rounded-xl" style="animation-delay: 0.2s;">
-                    <!-- FIX: Metric number must be bright light color -->
-                    <p class="text-5xl font-extrabold mb-2" style="color: var(--text-light) !important;">30+</p>
+                    <!-- FIX: Metric number must use accent color for impact -->
+                    <p class="text-5xl font-extrabold mb-2 metric-box-number">30+</p>
                     <p class="font-semibold text-gray-600">Cross-functional engineers & designers led, spanning <span class="font-bold">QA</span> and <span class="font-bold">design</span>.</p>
                 </div>
 
-                <!-- Metric 3 (Index 3): Efficiency (Kept content, adjusted order/delay) -->
+                <!-- Metric 3: Efficiency -->
                 <div class="metric-box p-6 rounded-xl" style="animation-delay: 0.3s;">
-                    <!-- FIX: Metric number must be bright light color -->
-                    <p class="text-5xl font-extrabold mb-2" style="color: var(--text-light) !important;">25%</p>
+                    <!-- FIX: Metric number must use accent color for impact -->
+                    <p class="text-5xl font-extrabold mb-2 metric-box-number">25%</p>
                     <p class="font-semibold text-gray-600">Development Efficiency Increase via <span class="font-bold">Agile</span> adoption.</p>
                 </div>
 
-                <!-- Metric 4 (Index 4): Events Delivered (Kept content, adjusted order/delay) -->
+                <!-- Metric 4: Events Delivered -->
                 <div class="metric-box p-6 rounded-xl" style="animation-delay: 0.4s;">
-                    <!-- FIX: Metric number must be bright light color -->
-                    <p class="text-5xl font-extrabold mb-2" style="color: var(--text-light) !important;">50+</p>
+                    <!-- FIX: Metric number must use accent color for impact -->
+                    <p class="text-5xl font-extrabold mb-2 metric-box-number">50+</p>
                     <p class="font-semibold text-gray-600">Large-scale <span class="font-bold">Esports Events</span> successfully executed and sponsored.</p>
                 </div>
             </div>
@@ -259,7 +283,7 @@
             <div id="highlight-content-container" class="grid md:grid-cols-3 gap-8">
                 <!-- Highlight 1: Platform Scalability (GameCentric) -->
                 <div class="highlight-item rounded-xl" style="animation-delay: 0.5s;">
-                    <h4 class="text-xl font-bold mb-2 text-gray-900 flex items-center">
+                    <h4 class="text-xl font-extrabold mb-2 text-gray-900 flex items-center">
                         <i data-lucide="monitor" class="w-6 h-6 mr-3" style="color: var(--accent-primary);"></i>
                         Platform Delivery & Scalability
                     </h4>
@@ -270,7 +294,7 @@
 
                 <!-- Highlight 2: Agile Transformation -->
                 <div class="highlight-item rounded-xl" style="animation-delay: 0.6s;">
-                    <h4 class="text-xl font-bold mb-2 text-gray-900 flex items-center">
+                    <h4 class="text-xl font-extrabold mb-2 text-gray-900 flex items-center">
                         <i data-lucide="iteration-ccw" class="w-6 h-6 mr-3" style="color: var(--accent-primary);"></i>
                         Agile & Process Transformation
                     </h4>
@@ -281,7 +305,7 @@
 
                 <!-- Highlight 3: Event Success & Sponsorship -->
                 <div class="highlight-item rounded-xl" style="animation-delay: 0.7s;">
-                    <h4 class="text-xl font-bold mb-2 text-gray-900 flex items-center">
+                    <h4 class="text-xl font-extrabold mb-2 text-gray-900 flex items-center">
                         <i data-lucide="award" class="w-6 h-6 mr-3" style="color: var(--accent-primary);"></i>
                         Revenue & Event Execution
                     </h4>
@@ -482,12 +506,13 @@
                 <!-- Education Column -->
                 <div class="lg:col-span-1 content-card p-6 rounded-xl" style="animation-delay: 1.1s;">
                     <h3 class="text-lg mb-3 section-title">Education</h3>
-                    <div class="space-y-3">
+                    <!-- FIX: Added wrapper for vertical centering -->
+                    <div class="education-content-wrapper">
                         <img src="./UB.png" 
                              alt="University of Batangas Logo" 
-                             class="ub-logo mb-2 object-contain mx-auto"
+                             class="ub-logo mb-2 object-contain"
                         >
-                        <p class="text-lg font-bold text-gray-900 text-center">B.S. Information & Comm. Tech</p>
+                        <p class="text-lg font-bold text-gray-900 text-center mt-3">B.S. Information & Comm. Tech</p>
                         <p class="text-sm text-gray-500 text-center">University of Batangas (2007 - 2011)</p>
                     </div>
                 </div>
@@ -512,7 +537,6 @@
                     </div>
                     <div class="contact-card-content">
                         <p class="text-xs font-semibold text-gray-500">PHONE</p>
-                        <!-- FIX: Ensure phone number is readable light text -->
                         <a href="tel:+971582871353" class="text-base font-medium hover:text-green-400 transition duration-300" style="color: var(--text-light) !important;">+971 58 287 1353</a>
                     </div>
                 </div>
@@ -523,7 +547,6 @@
                     </div>
                     <div class="contact-card-content">
                         <p class="text-xs font-semibold text-gray-500">EMAIL</p>
-                        <!-- FIX: Ensure email is readable light text -->
                         <a href="mailto:osep.dimacuha@gmail.com" class="text-base font-medium hover:text-green-400 transition duration-300" style="color: var(--text-light) !important;">osep.dimacuha@gmail.com</a>
                     </div>
                 </div>
