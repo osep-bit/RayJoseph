@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ray Joseph Dimacuha · Product & Delivery Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy:    #0d1f35;
+  --navy2:   #162d4a;
+  --blue:    #1a6cbf;
+  --sky:     #3a9fd8;
+  --warm:    #f5f0ea;
+  --sand:    #e8dfd0;
+  --cream:   #fdf9f4;
+  --text:    #1e2a38;
+  --muted:   #6a7a8a;
+  --accent:  #e87830;
+  --green:   #1a9a5a;
+  --white:   #ffffff;
+  --radius:  14px;
+  --shadow:  0 4px 32px rgba(13,31,53,0.10);
+  --shadow-lg: 0 12px 56px rgba(13,31,53,0.15);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--warm); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(253,249,244,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--sand);
+  padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -0.3px; }
+.nav-logo span { color: var(--blue); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; letter-spacing: 0.3px; transition: color .2s; }
+.nav-links a:hover { color: var(--blue); }
+.nav-cta { background: var(--navy); color: white; padding: 9px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; transition: background .2s, transform .1s; }
+.nav-cta:hover { background: var(--blue); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 100px 48px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(26,108,191,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(232,120,48,0.05) 0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.03;
+  background-image: linear-gradient(var(--navy) 1px, transparent 1px), linear-gradient(90deg, var(--navy) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hero-content { position: relative; z-index: 1; max-width: 680px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(26,108,191,0.08); border: 1px solid rgba(26,108,191,0.2);
+  border-radius: 100px; padding: 6px 16px; margin-bottom: 28px;
+  font-size: 12px; font-weight: 600; color: var(--blue); letter-spacing: 0.8px; text-transform: uppercase;
+  animation: fadeUp 0.6s ease both;
+}
+.hero-eyebrow::before { content: "●"; font-size: 8px; color: var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity: 0.3; } }
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+.hero-name em { color: var(--blue); font-style: normal; }
+.hero-role {
+  font-size: 18px; font-weight: 400; color: var(--muted);
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+.hero-role strong { color: var(--text); font-weight: 600; }
+.hero-desc {
+  font-size: 16px; color: var(--text); line-height: 1.75;
+  max-width: 560px; margin-bottom: 36px;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+.hero-pills {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px;
+  animation: fadeUp 0.6s 0.35s ease both;
+}
+.pill {
+  font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 100px;
+  background: white; border: 1px solid var(--sand); color: var(--text);
+}
+.pill.blue { background: rgba(26,108,191,0.08); border-color: rgba(26,108,191,0.2); color: var(--blue); }
+.pill.orange { background: rgba(232,120,48,0.08); border-color: rgba(232,120,48,0.2); color: var(--accent); }
+.pill.green { background: rgba(26,154,90,0.08); border-color: rgba(26,154,90,0.2); color: var(--green); }
+.hero-actions {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+.btn-primary { background: var(--navy); color: white; padding: 13px 28px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all .2s; display: inline-flex; align-items: center; gap: 8px; }
+.btn-primary:hover { background: var(--blue); transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn-secondary { background: white; color: var(--navy); padding: 13px 28px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--sand); transition: all .2s; }
+.btn-secondary:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+
+/* HERO STATS */
+.hero-stats {
+  position: absolute; right: 48px; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 16px; z-index: 1;
+  animation: fadeLeft 0.8s 0.4s ease both;
+}
+.stat-card {
+  background: white; border: 1px solid var(--sand); border-radius: var(--radius);
+  padding: 20px 24px; box-shadow: var(--shadow); min-width: 160px; text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+.stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.stat-card .num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--navy); line-height: 1; }
+.stat-card .num span { color: var(--blue); }
+.stat-card .lbl { font-size: 11px; color: var(--muted); margin-top: 4px; font-weight: 500; }
+
+@keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+@keyframes fadeLeft { from { opacity:0; transform: translateX(20px) translateY(-50%); } to { opacity:1; transform: translateX(0) translateY(-50%); } }
+
+/* ── SECTIONS SHARED ── */
+section { padding: 90px 48px; }
+.section-label { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 16px; }
+.section-title em { color: var(--blue); font-style: normal; }
+.section-intro { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.7; margin-bottom: 48px; }
+
+/* ── ABOUT ── */
+#about { background: white; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.about-text p { font-size: 15px; color: #3a4a5a; line-height: 1.8; margin-bottom: 16px; }
+.about-text p strong { color: var(--navy); }
+.about-values { display: flex; flex-direction: column; gap: 14px; }
+.value-item { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; background: var(--cream); border-radius: var(--radius); border: 1px solid var(--sand); transition: border-color .2s, transform .2s; }
+.value-item:hover { border-color: var(--blue); transform: translateX(4px); }
+.value-icon { width: 38px; height: 38px; border-radius: 10px; background: rgba(26,108,191,0.1); display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+.value-body h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+.value-body p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ── FLAGSHIP PRODUCT ── */
+#gamecentric { background: var(--navy); color: white; }
+#gamecentric .section-label { color: #7dc8f7; }
+#gamecentric .section-title { color: white; }
+#gamecentric .section-intro { color: rgba(255,255,255,0.6); }
+.gc-wrapper { background: linear-gradient(135deg, #0d1f35 0%, #142a45 40%, #0d3320 100%); border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.08); }
+.gc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; flex-wrap: wrap; gap: 16px; }
+.gc-title-block h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: #4dff88; margin-bottom: 6px; letter-spacing: -0.5px; }
+.gc-title-block p { font-size: 13px; color: rgba(255,255,255,0.5); }
+.gc-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.gc-badge { font-size: 11px; padding: 4px 12px; border-radius: 100px; border: 1px solid; font-weight: 600; letter-spacing: 0.3px; }
+.gc-badge.live { border-color: #4dff88; color: #4dff88; background: rgba(77,255,136,0.08); }
+.gc-badge.b2b2c { border-color: #7dc8f7; color: #7dc8f7; background: rgba(125,200,247,0.08); }
+.gc-badge.web3 { border-color: #f7c47d; color: #f7c47d; background: rgba(247,196,125,0.08); }
+.gc-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 28px; }
+.gc-stat { text-align: center; padding: 16px; background: rgba(255,255,255,0.04); border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); }
+.gc-stat .n { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: #4dff88; }
+.gc-stat .l { font-size: 10px; color: rgba(255,255,255,0.45); margin-top: 3px; }
+.gc-layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
+.gc-layer { padding: 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.07); }
+.gc-layer.b2c { background: rgba(26,108,191,0.15); border-color: rgba(125,200,247,0.2); }
+.gc-layer.b2b { background: rgba(26,154,90,0.12); border-color: rgba(77,255,136,0.15); }
+.gc-layer.fintech { background: rgba(232,120,48,0.12); border-color: rgba(247,196,125,0.2); }
+.gc-layer h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.gc-layer.b2c h4 { color: #7dc8f7; }
+.gc-layer.b2b h4 { color: #4dff88; }
+.gc-layer.fintech h4 { color: #f7c47d; }
+.gc-layer ul { list-style: none; }
+.gc-layer ul li { font-size: 11.5px; color: rgba(255,255,255,0.65); padding: 2px 0 2px 12px; position: relative; }
+.gc-layer ul li::before { content: "→"; position: absolute; left: 0; font-size: 9px; top: 4px; opacity: 0.6; }
+.gc-tech { display: flex; flex-wrap: wrap; gap: 7px; }
+.gc-tech span { font-family: 'DM Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.08); }
+
+/* ── CLIENTS ── */
+#clients { background: var(--warm); }
+.clients-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.client-card {
+  background: white; border-radius: var(--radius); padding: 24px 26px;
+  border: 1px solid var(--sand); box-shadow: var(--shadow);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  position: relative; overflow: hidden;
+}
+.client-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue), var(--sky)); transform: scaleX(0); transition: transform .3s; transform-origin: left; }
+.client-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(26,108,191,0.2); }
+.client-card:hover::before { transform: scaleX(1); }
+.client-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.client-type { font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.client-desc { font-size: 13px; color: #4a5a6a; line-height: 1.6; margin-bottom: 14px; }
+.client-features { display: flex; flex-wrap: wrap; gap: 5px; }
+.client-feat { font-size: 10.5px; background: rgba(26,108,191,0.07); color: var(--blue); border-radius: 4px; padding: 2px 8px; font-weight: 500; }
+.client-feat.orange { background: rgba(232,120,48,0.07); color: var(--accent); }
+.client-feat.green { background: rgba(26,154,90,0.07); color: var(--green); }
+
+/* ── EXPERIENCE TIMELINE ── */
+#experience { background: white; }
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ""; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--blue), var(--sand)); border-radius: 2px; }
+.timeline-item { position: relative; margin-bottom: 40px; }
+.timeline-dot { position: absolute; left: -32px; top: 8px; width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 3px solid white; box-shadow: 0 0 0 2px var(--blue); z-index: 1; }
+.timeline-dot.current { background: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.timeline-card { background: var(--cream); border: 1px solid var(--sand); border-radius: var(--radius); padding: 22px 26px; transition: border-color .2s, box-shadow .2s; }
+.timeline-card:hover { border-color: rgba(26,108,191,0.25); box-shadow: var(--shadow); }
+.timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+.timeline-role { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy); }
+.timeline-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--blue); background: rgba(26,108,191,0.08); padding: 3px 10px; border-radius: 100px; font-weight: 500; white-space: nowrap; }
+.timeline-company { font-size: 13px; font-weight: 600; color: var(--blue); margin-bottom: 12px; }
+.timeline-desc { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-style: italic; line-height: 1.6; }
+.timeline-bullets { list-style: none; }
+.timeline-bullets li { font-size: 13.5px; color: #3a4a5a; padding: 3px 0 3px 18px; position: relative; line-height: 1.6; }
+.timeline-bullets li::before { content: "▸"; position: absolute; left: 0; color: var(--blue); font-size: 10px; top: 5px; }
+.timeline-bullets li strong { color: var(--navy); }
+
+/* ── SKILLS ── */
+#skills { background: var(--warm); }
+.skills-outer { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.skill-card { background: white; border-radius: var(--radius); padding: 22px 24px; border: 1px solid var(--sand); transition: border-color .2s, transform .2s; }
+.skill-card:hover { border-color: rgba(26,108,191,0.25); transform: translateY(-2px); }
+.skill-card-icon { font-size: 22px; margin-bottom: 10px; }
+.skill-card h3 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 10px; letter-spacing: 0.3px; text-transform: uppercase; font-family: 'DM Mono', monospace; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tag { font-size: 11.5px; padding: 3px 10px; border-radius: 6px; background: var(--cream); border: 1px solid var(--sand); color: var(--text); font-weight: 500; }
+
+/* ── CONTACT ── */
+#contact { background: var(--navy); color: white; text-align: center; }
+#contact .section-label { color: #7dc8f7; }
+#contact .section-title { color: white; margin-bottom: 16px; }
+.contact-subtitle { font-size: 17px; color: rgba(255,255,255,0.55); max-width: 480px; margin: 0 auto 48px; line-height: 1.7; }
+.contact-cards { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+.contact-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 20px 28px; text-align: left; min-width: 200px; transition: background .2s, transform .2s; text-decoration: none; }
+.contact-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+.contact-card .cc-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+.contact-card .cc-value { font-size: 14px; color: white; font-weight: 500; }
+.contact-card .cc-icon { font-size: 20px; margin-bottom: 10px; }
+.availability { display: inline-flex; align-items: center; gap: 8px; background: rgba(77,255,136,0.1); border: 1px solid rgba(77,255,136,0.2); border-radius: 100px; padding: 10px 22px; font-size: 13px; color: #4dff88; font-weight: 500; }
+.availability::before { content: "●"; font-size: 8px; animation: pulse 2s infinite; }
+
+/* ── FOOTER ── */
+footer { background: #080f18; padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
+footer a { font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none; }
+footer a:hover { color: var(--sky); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  section { padding: 70px 24px; }
+  .hero { padding: 100px 24px 60px; }
+  .hero-stats { display: none; }
+  .about-grid, .clients-intro-grid, .skills-outer { grid-template-columns: 1fr; gap: 24px; }
+  .gc-layers, .gc-stats-row { grid-template-columns: 1fr; }
+  .hero-name { letter-spacing: -1px; }
+  footer { flex-direction: column; gap: 10px; text-align: center; }
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ray<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#gamecentric">GameCentric</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Talk →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Available for New Opportunities · Dubai, UAE</div>
+    <h1 class="hero-name">Ray Joseph<br><em>Dimacuha</em></h1>
+    <p class="hero-role"><strong>Head of Product & Delivery</strong> · Digital Platforms · Fintech · Gaming · Web3</p>
+    <p class="hero-desc">I build digital ecosystems that actually work — from the first whiteboard sketch to 200,000 live users. I architect platforms where enterprise clients, end users, and technology meet seamlessly. Based in Dubai, working globally.</p>
+    <div class="hero-pills">
+      <span class="pill blue">🎮 GameCentric Architect</span>
+      <span class="pill orange">🏦 Fintech & Web3</span>
+      <span class="pill green">🚀 B2B2C Platforms</span>
+      <span class="pill">10+ Years Experience</span>
+      <span class="pill">MENA · LATAM · SEA</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#gamecentric" class="btn-primary">See My Work ↓</a>
+      <a href="#contact" class="btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="num">200<span>K+</span></div>
+      <div class="lbl">Platform Users</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">1,500<span>+</span></div>
+      <div class="lbl">Tournaments Delivered</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">50<span>+</span></div>
+      <div class="lbl">Enterprise Projects</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">10<span>+</span></div>
+      <div class="lbl">Years in UAE</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About Me</div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <h2 class="section-title">I don't just manage products.<br><em>I build them.</em></h2>
+      <p>Hi — I'm Ray. I'm a product and delivery leader who has spent over a decade in the UAE turning complex digital ideas into platforms that millions of people actually use. My work sits at the intersection of <strong>product strategy, technical delivery, and business growth</strong> — I'm equally comfortable in a boardroom presenting to C-level executives and in a sprint planning session with engineers.</p>
+      <p>My flagship product, <strong>GameCentric</strong>, is a Gaming Ecosystem-as-a-Service I architected from scratch at Iconic Technologies. It's a live, multi-region B2B2C platform with 200,000+ users, a built-in fintech payout layer, and a white-label engine used by global enterprise brands. It's the product I'm most proud of — and the one that best shows how I think.</p>
+      <p>Beyond GameCentric, I've delivered custom digital platforms for <strong>Emirates NBD, Dubai Esports Festival, Riyadh Season, BMW, Mastercard, Kaspersky, LIV Golf, Vodacom</strong>, and more. Every project involves its own blend of stakeholder complexity, technical challenge, and delivery pressure — and I thrive in that environment.</p>
+      <p>I'm based in Dubai, open to senior product and delivery leadership roles across fintech, gaming, enterprise tech, and any company serious about building digital platforms that last.</p>
+    </div>
+    <div class="about-values reveal">
+      <div class="value-item">
+        <div class="value-icon">🧭</div>
+        <div class="value-body">
+          <h4>Strategy first, execution always</h4>
+          <p>I believe the best delivery leaders think in frameworks and systems — not just tasks. Every feature I ship is traceable back to a business outcome.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🤝</div>
+        <div class="value-body">
+          <h4>People make platforms work</h4>
+          <p>Technology is the easy part. Aligning engineers, designers, business stakeholders, and clients around a shared vision — that's the real work.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">📊</div>
+        <div class="value-body">
+          <h4>Data tells the truth</h4>
+          <p>I build KPI frameworks and analytics layers into every platform I touch. Decisions should be informed by what users actually do, not what we think they do.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🌍</div>
+        <div class="value-body">
+          <h4>Built for global scale</h4>
+          <p>GameCentric runs across MENA, LATAM, Southeast Asia, and South Asia. I design platforms to work everywhere from day one, not as an afterthought.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAMECENTRIC -->
+<section id="gamecentric">
+  <div class="section-label">Flagship Product</div>
+  <h2 class="section-title">GameCentric</h2>
+  <p class="section-intro">The world's first B2B2C Gaming Ecosystem-as-a-Service — built at Iconic Technologies. Live, validated, and scaling across four global regions.</p>
+  <div class="gc-wrapper reveal">
+    <div class="gc-header">
+      <div class="gc-title-block">
+        <h2>GameCentric.io</h2>
+        <p>Architect & Product Lead · Iconic Technologies · 2021–Present</p>
+      </div>
+      <div class="gc-badges">
+        <span class="gc-badge live">● Live Platform</span>
+        <span class="gc-badge b2b2c">B2B2C Model</span>
+        <span class="gc-badge web3">Web3 + Fintech</span>
+      </div>
+    </div>
+    <div class="gc-stats-row">
+      <div class="gc-stat"><div class="n">200K+</div><div class="l">Registered Users</div></div>
+      <div class="gc-stat"><div class="n">1,500+</div><div class="l">Tournaments Run</div></div>
+      <div class="gc-stat"><div class="n">400+</div><div class="l">Games in Library</div></div>
+      <div class="gc-stat"><div class="n">4</div><div class="l">Global Regions</div></div>
+    </div>
+    <div class="gc-layers">
+      <div class="gc-layer b2c">
+        <h4>B2C Player Destination</h4>
+        <ul>
+          <li>Tournament platform (1,500+ run)</li>
+          <li>Automated challenge engine</li>
+          <li>400+ casual & F2P games</li>
+          <li>LMS with pro certification</li>
+          <li>Tiered membership system</li>
+          <li>In-app marketplace (GCP)</li>
+        </ul>
+      </div>
+      <div class="gc-layer b2b">
+        <h4>B2B White-Label Engine</h4>
+        <ul>
+          <li>Multi-tenant console platform</li>
+          <li>API-as-a-Product (99.9% uptime)</li>
+          <li>Deploy in days, not months</li>
+          <li>Custom branding & modules</li>
+          <li>Built-in 200K+ audience</li>
+          <li>Clients: telecoms, FMCG, sports</li>
+        </ul>
+      </div>
+      <div class="gc-layer fintech">
+        <h4>Fintech / Web3 Layer</h4>
+        <ul>
+          <li>GCP in-app currency engine</li>
+          <li>GCVC token bridge</li>
+          <li>Sequence embedded Web3 wallet</li>
+          <li>Swisspay → Visa instant payout</li>
+          <li>Physical + virtual debit cards</li>
+          <li>Invisible Web3 UX for users</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gc-tech">
+      <span>React.js</span><span>Node.js</span><span>AWS Lambda</span><span>PostgreSQL</span>
+      <span>DynamoDB</span><span>Redis</span><span>React Native</span><span>Docker</span>
+      <span>Sequence Wallets</span><span>Swisspay / Visa</span><span>Stripe</span><span>PayPal</span>
+      <span>Google Analytics 4</span><span>Cloudflare WAF</span><span>Tailwind CSS</span>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="section-label">Client Work</div>
+  <h2 class="section-title">Brands I've <em>Built For</em></h2>
+  <p class="section-intro">Every engagement below involved custom-built platform features — not off-the-shelf solutions. Real products, real outcomes.</p>
+
+  <style>
+    /* Logo area */
+    .client-logo-wrap {
+      height: 52px; display: flex; align-items: center; margin-bottom: 14px;
+    }
+    .client-logo-wrap img {
+      max-height: 40px; max-width: 140px; object-fit: contain; filter: grayscale(20%);
+      transition: filter .2s;
+    }
+    .client-card:hover .client-logo-wrap img { filter: grayscale(0%); }
+    /* fallback text logo */
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    /* 3-col grid for clients */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 900px) {
+      .clients-grid { grid-template-columns: 1fr; }
+    }
+    /* accent colour per brand */
+    .client-card.enbd    { --brand: #c8102e; }
+    .client-card.enbd-liv { --brand: #1a1a2e; }
+    .client-card.det     { --brand: #006aab; }
+    .client-card.riyadh  { --brand: #1c5532; }
+    .client-card.bmw     { --brand: #0066b1; }
+    .client-card.mastercard { --brand: #eb001b; }
+    .client-card.kaspersky  { --brand: #006d5b; }
+    .client-card.zoratel    { --brand: #5a189a; }
+    .client-card.vodacom    { --brand: #e60000; }
+    .client-card.yas        { --brand: #ff6200; }
+    .client-card::before    { background: linear-gradient(90deg, var(--brand, var(--blue)), var(--sky)); }
+  </style>
+
+  <div class="clients-grid reveal">
+
+    <!-- 1. Emirates NBD — Spot the Fraud -->
+    <div class="client-card enbd">
+      <div class="client-logo-wrap">
+        <img src="https://logo.clearbit.com/emiratesnbd.com" alt="Emirates NBD"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span class="logo-text" style="display:none; color:#c8102e;">Emirates NBD</span>
+      </div>
+      <div class="client-type">Banking & Financial Services</div>
+      <div class="client-desc">Built <strong>"Spot the Fraud"</strong> — a gamified cybersecurity awareness web app. Users identify fraud signals in emails, messages, and digital scenarios, earning points for correct answers.</div>
+      <div class="client-features">
+        <span class="client-feat">Gamified Activation</span>
+        <span class="client-feat">Points System</span>
+        <span class="client-feat">Fraud Awareness</span>
+        <span class="client-feat orange">Custom Web App</span>
+      </div>
+    </div>
+
+    <!-- 2. Emirates NBD — LIV -->
+    <div class="client-card enbd-liv">
+      <div class="client-logo-wrap">
+        <img src="https://logo.clearbit.com/emiratesnbd.com" alt="Emirates NBD LIV"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span class="logo-text" style="display:none; color:#1a1a2e;">ENBD <span style="color:var(--blue)">LIV</span></span>
+      </div>
+      <div class="client-type">Emirates NBD · LIV Product</div>
+      <div class="client-desc">Delivered a white-label engagement platform for <strong>ENBD's LIV product</strong> — a gamified digital experience integrating in-app rewards, leaderboard mechanics, and branded challenges to drive customer engagement for ENBD's digital banking offering.</div>
+      <div class="client-features">
+        <span class="client-feat">White-Label Platform</span>
+        <span class="client-feat">Leaderboard</span>
+        <span class="client-feat">In-App Rewards</span>
+        <span class="client-feat orange">Digital Banking</span>
+      </div>
+    </div>
+
+    <!-- 3. Dubai Esports Festival / DET -->
+    <div class="client-card det">
+      <div class="client-logo-wrap">
+        <img src="https://logo.clearbit.com/dubaieconomy.gov.ae" alt="DET"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span class="logo-text" style="display:none; color:#006aab;">Dubai Esports</span>
+      </div>
+      <div class="client-type">DET · 3 Consecutive Years</div>
+      <div class="client-desc">Flagship digital platform for <strong>Dubai Esports Festival</strong>, commissioned by the Dubai Department of Economy & Tourism. Delivered for 3 consecutive years — tournament operations, live activations, and community engagement at government scale.</div>
+      <div class="client-features">
+        <span class="client-feat">White-Label Platform</span>
+        <span class="client-feat">Tournament Engine</span>
+        <span class="client-feat">Live Activation</span>
+        <span class="client-feat green">3-Year Retention</span>
+      </div>
+    </div>
+
+    <!-- 4. Riyadh Season -->
+    <div class="client-card riyadh">
+      <div class="client-logo-wrap">
+        <img src="https://logo.clearbit.com/riyadhseason.sa" alt="Riyadh Season"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span class="logo-text" style="display:none; color:#1c5532;">Riyadh Season</span>
+      </div>
+      <div class="client-type">Rush Gaming Festival · 2 Consecutive Years</div>
+      <div class="client-desc">Custom white-label gaming platform for the <strong>Rush Gaming Festival</strong> at Riyadh Season — Saudi Arabia's largest entertainment event. Competitive gaming, leaderboards, and fan engagement across two consecutive seasons.</div>
+      <div class="client-features">
+        <span class="client-feat">White-Label Platform</span>
+        <span class="client-feat">Leaderboard Engine</span>
+        <span class="client-feat">Ranking System</span>
+        <span class="client-feat orange">KSA Market</span>
+      </div>
+    </div>
+
+    <!-- 5. BMW -->
+    <div class="client-card bmw">
+      <div class="client-logo-wrap">
+        <img src="https://logo.clearbit.com/bmw.com" alt="BMW"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span class="logo-text" style="display:none; color:#0066b1;">BMW</span>
+      </div>
+      <div class="client-type">Automotive · Original IP</div>
+      <div class="client-desc">Created an original IP platform for <strong>BMW Esports AE</strong> — a bespoke gaming experience driving brand awareness and authentic engagement with the UAE gaming community. Bridged automotive luxury with gaming culture.</div>
+      <div class="client-features">
+        <span class="client-feat">Original IP</span>
+        <span class="client-feat">Brand Awareness</span>
+        <span class="client-feat">Community Engagement</span>
+        <span class="client-feat orange">UAE Market</span>
+      </div>
+    </div>
+
+    <!-- 6. Mastercard -->
+    <div class="client-card mastercard">
+      <div class="client-logo-wrap">
+        <img src="https://logo.clearbit.com/mastercard.com" alt="Mastercard"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span class="logo-text" style="display:none; color:#eb001b;">Mastercard</span>
+      </div>
+      <div class="client-type">Financial Services · Brand Activation</div>
+      <div class="client-desc">Delivered a custom white-label engagement platform for <strong>Mastercard</strong> — featuring branded gaming experiences, in-app currency mechanics, and loyalty rewards designed to deepen cardholder engagement through interactive play.</div>
+      <div class="client-features">
+        <span class="client-feat">White-Label Platform</span>
+        <span class="client-feat">In-App Currency</span>
+        <span class="client-feat">Loyalty Rewards</span>
+        <span class="client-feat orange">Brand Activation</span>
+      </div>
+    </div>
+
+    <!-- 7. Kaspersky -->
+    <div class="client-card kaspersky">
+      <div class="client-logo-wrap">
+        <img src="https://logo.clearbit.com/kaspersky.com" alt="Kaspersky"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span class="logo-text" style="display:none; color:#006d5b;">Kaspersky</span>
+      </div>
+      <div class="client-type">Cybersecurity · Brand Activation</div>
+      <div class="client-desc">Built a custom white-label gaming engagement solution for <strong>Kaspersky</strong> — a branded platform combining competitive gaming, security-themed challenges, and a leaderboard system to create memorable brand-to-audience connections.</div>
+      <div class="client-features">
+        <span class="client-feat">White-Label Platform</span>
+        <span class="client-feat">Branded Challenges</span>
+        <span class="client-feat">Leaderboard</span>
+        <span class="client-feat orange">Brand Activation</span>
+      </div>
+    </div>
+
+    <!-- 8. Zoratel -->
+    <div class="client-card zoratel">
+      <div class="client-logo-wrap">
+        <span class="logo-text" style="color:#5a189a;">Zoratel</span>
+      </div>
+      <div class="client-type">Telco · Revenue Share</div>
+      <div class="client-desc">Deployed a full white-label gaming platform for <strong>Zoratel</strong> under a revenue-share model — enabling the telco to offer a branded gaming bundle to their subscriber base with zero platform build cost and immediate access to GameCentric's infrastructure.</div>
+      <div class="client-features">
+        <span class="client-feat">Revenue Share Model</span>
+        <span class="client-feat">White-Label Platform</span>
+        <span class="client-feat">Membership System</span>
+        <span class="client-feat green">Telco Bundle</span>
+      </div>
+    </div>
+
+    <!-- 9. Vodacom Tanzania -->
+    <div class="client-card vodacom">
+      <div class="client-logo-wrap">
+        <img src="https://logo.clearbit.com/vodacom.com" alt="Vodacom"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <span class="logo-text" style="display:none; color:#e60000;">Vodacom</span>
+      </div>
+      <div class="client-type">Telco · Tanzania · Revenue Share</div>
+      <div class="client-desc">White-label gaming platform deployment for <strong>Vodacom Tanzania</strong> — a revenue-share powered gaming bundle integrated into Vodacom's digital services offering, bringing GameCentric's tournament and rewards infrastructure to the Tanzanian market.</div>
+      <div class="client-features">
+        <span class="client-feat">Revenue Share Model</span>
+        <span class="client-feat">White-Label Platform</span>
+        <span class="client-feat">Tournament Engine</span>
+        <span class="client-feat green">Tanzania Market</span>
+      </div>
+    </div>
+
+    <!-- 10. Yas -->
+    <div class="client-card yas">
+      <div class="client-logo-wrap">
+        <span class="logo-text" style="color:#ff6200;">Yas</span>
+      </div>
+      <div class="client-type">Telco · Senegal & Tanzania · Revenue Share</div>
+      <div class="client-desc">White-label gaming platform for <strong>Yas</strong> across Senegal and Tanzania — a multi-market revenue-share deployment bringing branded gaming, in-app rewards, and community features to West and East African telco subscribers simultaneously.</div>
+      <div class="client-features">
+        <span class="client-feat">Revenue Share Model</span>
+        <span class="client-feat">White-Label Platform</span>
+        <span class="client-feat">Multi-Market</span>
+        <span class="client-feat green">Senegal + Tanzania</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CUSTOM FEATURES BUILT -->
+  <div class="reveal" style="margin-top:32px; background:white; border-radius:var(--radius); padding:28px 32px; border:1px solid var(--sand);">
+    <h3 style="font-family:'Playfair Display',serif; font-size:18px; color:var(--navy); margin-bottom:16px;">Custom Features Delivered Across All Clients</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <span class="skill-tag">In-App Currency Systems</span>
+      <span class="skill-tag">Tiered Membership Programs</span>
+      <span class="skill-tag">Leaderboard Engines</span>
+      <span class="skill-tag">Ranking Systems</span>
+      <span class="skill-tag">Loyalty Reward Platforms</span>
+      <span class="skill-tag">Database Collection Infrastructure</span>
+      <span class="skill-tag">Retail Marketplace Integration</span>
+      <span class="skill-tag">Tournament Automation</span>
+      <span class="skill-tag">White-Label Consoles</span>
+      <span class="skill-tag">API-as-a-Product</span>
+      <span class="skill-tag">Revenue Share Models</span>
+      <span class="skill-tag">Brand Activation Platforms</span>
+      <span class="skill-tag">Gamified Learning (LMS)</span>
+      <span class="skill-tag">Fintech Payout Loops</span>
+      <span class="skill-tag">Web3 Wallet Integration</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career Journey</div>
+  <h2 class="section-title">Where I've <em>Been</em></h2>
+  <p class="section-intro">10+ years building digital platforms in the UAE — each role a step deeper into product complexity, delivery leadership, and stakeholder impact.</p>
+  <div class="timeline reveal">
+
+    <div class="timeline-item">
+      <div class="timeline-dot current"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-role">Head of Product</div>
+          <div class="timeline-date">2023 – Present</div>
+        </div>
+        <div class="timeline-company">Iconic Technologies · Dubai, UAE</div>
+        <div class="timeline-desc">Product architect and primary client partner for enterprise digital platform engagements across gaming, fintech, and consumer ecosystems.</div>
+        <ul class="timeline-bullets">
+          <li>Lead architect of <strong>GameCentric</strong> — live B2B2C platform with 200K+ users and multi-region deployment</li>
+          <li>Primary product partner to C-level stakeholders at <strong>Emirates NBD, DET, BMW, Mastercard, Kaspersky, LIV Golf</strong>, and telco clients across Africa and the Levant</li>
+          <li>Defined and executed product strategy, roadmap, and commercialisation for all client platforms</li>
+          <li>Led steering committees, product governance reviews, and executive reporting for all major accounts</li>
+          <li>Implemented KPI-driven ROI frameworks demonstrating business impact and product adoption</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-role">Product Owner – Digital Platform</div>
+          <div class="timeline-date">2021 – 2023</div>
+        </div>
+        <div class="timeline-company">Iconic Technologies · Dubai, UAE</div>
+        <div class="timeline-desc">End-to-end product ownership across enterprise client digital platform projects — from discovery to production.</div>
+        <ul class="timeline-bullets">
+          <li>Translated complex enterprise client requirements into technical product specifications and delivery roadmaps</li>
+          <li>Introduced <strong>Agile delivery frameworks</strong> — improved team velocity by 25% and reduced cycle time</li>
+          <li>Led API integration delivery for financial systems, gaming publishers, and third-party platforms</li>
+          <li>Facilitated client workshops aligning stakeholders on product direction, features, and integration strategy</li>
+          <li>Implemented analytics stack (Mixpanel, GA) driving data-informed product improvements</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-role">Project Manager</div>
+          <div class="timeline-date">2018 – 2021</div>
+        </div>
+        <div class="timeline-company">Gamers Hub Media Events · UAE</div>
+        <div class="timeline-desc">Delivery ownership for 50+ large-scale digital and live event projects across GCC markets.</div>
+        <ul class="timeline-bullets">
+          <li>Delivered <strong>50+ large-scale digital platforms and live activations</strong> across UAE, Saudi Arabia, and Kuwait</li>
+          <li>Primary client relationship manager for high-profile regional accounts — managing requirements, approvals, escalations, and satisfaction</li>
+          <li>Led multi-vendor coordination between technology providers, creative agencies, and internal teams</li>
+          <li>Built long-term client relationships through consistent on-time, on-scope delivery</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">What I Bring</div>
+  <h2 class="section-title">Skills & <em>Expertise</em></h2>
+  <p class="section-intro">A decade of hands-on platform building has given me a wide but deep skillset — spanning product thinking, technical delivery, and business leadership.</p>
+  <div class="skills-outer reveal">
+    <div class="skill-card">
+      <div class="skill-card-icon">🎯</div>
+      <h3>Product Leadership</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Product Strategy</span><span class="skill-tag">Roadmap Development</span>
+        <span class="skill-tag">Product Discovery</span><span class="skill-tag">Go-to-Market</span>
+        <span class="skill-tag">OKR / KPI Frameworks</span><span class="skill-tag">Platform Monetisation</span>
+        <span class="skill-tag">Product Lifecycle Management</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🚚</div>
+      <h3>Delivery & Programme</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Agile / Scrum</span><span class="skill-tag">Cross-Functional Teams</span>
+        <span class="skill-tag">Release Management</span><span class="skill-tag">Stakeholder Governance</span>
+        <span class="skill-tag">Vendor Management</span><span class="skill-tag">Risk Management</span>
+        <span class="skill-tag">Dependency Management</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🔗</div>
+      <h3>API & Platform Architecture</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">API-First Design</span><span class="skill-tag">Microservices</span>
+        <span class="skill-tag">White-Label Platforms</span><span class="skill-tag">Multi-Tenant SaaS</span>
+        <span class="skill-tag">B2B2C Architecture</span><span class="skill-tag">Postman / Swagger</span>
+        <span class="skill-tag">AWS Infrastructure</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">💳</div>
+      <h3>Fintech & Web3</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Token Economy Design</span><span class="skill-tag">Visa Payout Infrastructure</span>
+        <span class="skill-tag">Sequence Wallet (Web3)</span><span class="skill-tag">In-App Currency</span>
+        <span class="skill-tag">Loyalty & Rewards</span><span class="skill-tag">Stripe / PayPal</span>
+        <span class="skill-tag">Digital Payments</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">📊</div>
+      <h3>Data & Analytics</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Google Analytics 4</span><span class="skill-tag">Mixpanel</span>
+        <span class="skill-tag">GTM</span><span class="skill-tag">User Behaviour Analysis</span>
+        <span class="skill-tag">Engagement Metrics</span><span class="skill-tag">Revenue Analytics</span>
+        <span class="skill-tag">Data-Driven Roadmapping</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🛠️</div>
+      <h3>Tools & Methods</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Jira</span><span class="skill-tag">Confluence</span>
+        <span class="skill-tag">Figma</span><span class="skill-tag">Miro</span>
+        <span class="skill-tag">Design Thinking</span><span class="skill-tag">Lean Startup</span>
+        <span class="skill-tag">Six E's Framework</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Let's Build<br>Something <em>Great</em></h2>
+  <p class="contact-subtitle">I'm open to senior product and delivery leadership roles across fintech, gaming, enterprise tech, and digital platforms. Based in Dubai — working globally.</p>
+  <div class="contact-cards">
+    <a href="mailto:osep.dimacuha@gmail.com" class="contact-card">
+      <div class="cc-icon">📧</div>
+      <div class="cc-label">Email</div>
+      <div class="cc-value">osep.dimacuha@gmail.com</div>
+    </a>
+    <a href="tel:+971582871353" class="contact-card">
+      <div class="cc-icon">📞</div>
+      <div class="cc-label">Phone</div>
+      <div class="cc-value">+971 58 287 1353</div>
+    </a>
+    <a href="https://www.linkedin.com/in/ray-joseph/" target="_blank" class="contact-card">
+      <div class="cc-icon">💼</div>
+      <div class="cc-label">LinkedIn</div>
+      <div class="cc-value">linkedin.com/in/ray-joseph</div>
+    </a>
+    <a href="https://github.io/RayJoseph" target="_blank" class="contact-card">
+      <div class="cc-icon">💻</div>
+      <div class="cc-label">Portfolio</div>
+      <div class="cc-value">github.io/RayJoseph</div>
+    </a>
+  </div>
+  <div class="availability">Open to senior roles · Dubai-based · Available now</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Ray Joseph Dimacuha · Dubai, UAE</p>
+  <a href="https://www.linkedin.com/in/ray-joseph/" target="_blank">LinkedIn →</a>
+</footer>
+
+<!-- SCROLL REVEAL JS -->
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
